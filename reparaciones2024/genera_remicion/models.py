@@ -16,7 +16,11 @@ class Equipo(models.Model):
     numero_serie = models.CharField(max_length=100, unique=True)
     descripcion_problema = models.TextField()
 
-    
+class Tecnico(models.Model):
+    nombre = models.CharField(max_length=100)
+    especialidad = models.CharField(max_length=100)
+    telefono = models.CharField(max_length=20)
+    email = models.EmailField(blank=True, null=True)
 
 class Remision(models.Model):
     equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
@@ -24,17 +28,9 @@ class Remision(models.Model):
     numero_remision = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     descripcion_trabajo = models.TextField()  # Detalles del trabajo realizado
     costo_reparacion = models.DecimalField(max_digits=10, decimal_places=2)
-    estatus = models.CharField(
-        max_length=50,
-        choices=[('pendiente', 'Pendiente'), ('en_proceso', 'En proceso'), ('completado', 'Completado')]
-    )
+    estatus = models.CharField(max_length=50,choices=[('pendiente', 'Pendiente'), ('en_proceso', 'En proceso'), ('completado', 'Completado')])
     fecha_entrega = models.DateField(blank=True, null=True)
     observaciones = models.TextField(blank=True, null=True)
+    tecnico = models.ForeignKey(Tecnico, on_delete=models.SET_NULL, null=True)
 
-
-class Tecnico(models.Model):
-    nombre = models.CharField(max_length=100)
-    especialidad = models.CharField(max_length=100)
-    telefono = models.CharField(max_length=20)
-    email = models.EmailField(blank=True, null=True)
 
