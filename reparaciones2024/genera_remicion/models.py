@@ -9,7 +9,7 @@ class Cliente(models.Model):
     fecha_registro = models.DateTimeField(auto_now_add=True)
 
 class Equipo(models.Model):
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     tipo_equipo = models.CharField(max_length=100)  # Ej: 'Laptop', 'Celular', etc.
     marca = models.CharField(max_length=50)
     modelo = models.CharField(max_length=50)
@@ -23,7 +23,8 @@ class Tecnico(models.Model):
     email = models.EmailField(blank=True, null=True)
 
 class Remision(models.Model):
-    equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
+    Equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
+    Tecnico = models.ForeignKey(Tecnico, on_delete=models.SET_NULL, null=True)
     fecha_remision = models.DateField(auto_now_add=True)
     numero_remision = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     descripcion_trabajo = models.TextField()  # Detalles del trabajo realizado
@@ -31,6 +32,6 @@ class Remision(models.Model):
     estatus = models.CharField(max_length=50,choices=[('pendiente', 'Pendiente'), ('en_proceso', 'En proceso'), ('completado', 'Completado')])
     fecha_entrega = models.DateField(blank=True, null=True)
     observaciones = models.TextField(blank=True, null=True)
-    tecnico = models.ForeignKey(Tecnico, on_delete=models.SET_NULL, null=True)
+    
 
 
