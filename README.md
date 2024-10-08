@@ -1,12 +1,16 @@
 # reparaciones2024
- proyecto integrador de la materia de Diseño de Sistemas 
+ proyecto integrador de la materia de Programacion e Implementacion de Sistemas
+ Este proyecto consiste en una empresa dedicada a la reparacion y mantenimiento de equipos electronicos quiere mejorar sus proceso con los cliente haciendo que estos sean mas eficientes y lleven un contro de cuantos servicios brindan, por lo cual este es una de las primeras propuestas para la creacion de un sistema que gestione cada una de la reparaciones llevando un control de la misma es por ello que el sistema llevara
+ una interfaz con el cliente para que este verifique en que estado se encuentra su reparacion 
+ una interfaz donde el administrador del sistema podra llenar la hoja de requisicion y que esta entre al sistema
 
 ## Table of Contents
-1. [General Info](#general-info)
-2. [Technologies](#technologies)
-3. [Installation](#installation)
-4. [Collaboration](#collaboration)
-5. [FAQs](#faqs)
+1. [Objetivo](#Objetivo)
+2. [Requerimientos](#technologies)
+3. [Requerimiento Identificado](#installation)
+4. [Situacion Actual](#collaboration)
+5. [Dependencias con Otros sistemas](#faqs)
+6. 
 ### General Info
 ***
 Write down the general informations of your project. It is worth to always put a project status in the Readme file. This is where you can add it. 
