@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from  genera_remicion import views
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('consulta_estado/', views.consulta_estado, name='consulta_estado')
 ]

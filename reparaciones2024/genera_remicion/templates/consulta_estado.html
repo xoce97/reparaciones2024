@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta Estado de Remisión</title>
+</head>
+<body>
+    <h1>Consulta el Estado de tu Remisión</h1>
+
+    <!-- Formulario para ingresar el número de estado -->
+    <form method="POST">
+        {% csrf_token %}
+        <label for="numero_estado">Número de Estado:</label>
+        <input type="text" id="numero_estado" name="numero_estado" required>
+        <button type="submit">Consultar</button>
+    </form>
+
+    <!-- Mostrar los resultados de la consulta -->
+    {% if remision %}
+        <h2>Detalles de la Remisión</h2>
+        <p><strong>Número de Remisión:</strong> {{ remision.numero_remision }}</p>
+        <p><strong>Cliente:</strong> {{ remision.cliente.nombre }}</p>
+        <p><strong>Equipo:</strong> {{ remision.equipo.descripcion }}</p>
+        <p><strong>Estado:</strong> {{ remision.estado }}</p>
+    {% elif error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
