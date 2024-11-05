@@ -1,13 +1,21 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+<DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta Estado de Remisión</title>
+    {% block titulo %}Consulta el Estado de tu Remisión{% endblock %}
+    {% block estilos %}{% endblock %} 
+    {% block script %}{% endblock %} 
 </head>
-<body>
-    <h1>Consulta el Estado de tu Remisión</h1>
+{% block encabezado %}
 
+{% endblock %}
+{% block barra %}
+
+{% endblock %}
+{% block contenido %}
+<body>
     <!-- Formulario para ingresar el número de estado -->
     <form method="POST">
         {% csrf_token %}
@@ -20,11 +28,12 @@
     {% if remision %}
         <h2>Detalles de la Remisión</h2>
         <p><strong>Número de Remisión:</strong> {{ remision.numero_remision }}</p>
-        <p><strong>Cliente:</strong> {{ remision.cliente.nombre }}</p>
-        <p><strong>Equipo:</strong> {{ remision.equipo.descripcion }}</p>
+        <p><strong>Cliente:</strong> {{ cliente.nombre }}</p>
+        <p><strong>Equipo:</strong> {{ equipo.descripcion }}</p>
         <p><strong>Estado:</strong> {{ remision.estado }}</p>
     {% elif error %}
         <p style="color: red;">{{ error }}</p>
     {% endif %}
 </body>
+{% endblock %}
 </html>

@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Remision  # Asegúrate de que Remision es el modelo correcto
 
+def index(request):
+    pass
+    
+
 def consulta_estado(request):
     if request.method == 'POST':
         numero_estado = request.POST.get('numero_estado')
