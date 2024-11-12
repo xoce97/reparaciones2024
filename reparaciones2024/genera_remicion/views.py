@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Remision  # Asegúrate de que Remision es el modelo correcto
 
-def index(request):
-    pass
+def home(request):
+    return render(request,'home.html')
     
 
 def consulta_estado(request):
@@ -20,3 +20,4 @@ def consulta_estado(request):
         return render(request, 'consulta_estado.html', contexto)
     
     return render(request, 'consulta_estado.html')
+

@@ -19,5 +19,6 @@ from django.urls import path
 from  genera_remicion import views
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.home, name='home'),
     path('consulta_estado/', views.consulta_estado, name='consulta_estado')
 ]
