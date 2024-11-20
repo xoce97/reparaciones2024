@@ -1,3 +1,4 @@
+from django.db import models
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Remision  # Asegúrate de que Remision es el modelo correcto
@@ -20,4 +21,5 @@ def consulta_estado(request):
         return render(request, 'consulta_estado.html', contexto)
     
     return render(request, 'consulta_estado.html')
+
 

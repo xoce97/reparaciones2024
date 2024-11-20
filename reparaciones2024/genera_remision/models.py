@@ -31,17 +31,13 @@ class Equipo(models.Model):
         return self.tipo_equipo
 
 class Remision(models.Model):
+    Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    Equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
+    Tecnico = models.ForeignKey(Tecnico, on_delete=models.SET_NULL, null=True)
     fecha_remision = models.DateField(auto_now_add=True)
     descripcion_trabajo = models.TextField()  # Detalles del trabajo realizado
     costo_reparacion = models.DecimalField(max_digits=10, decimal_places=2)
     estatus = models.CharField(max_length=50,choices=[('pendiente', 'Pendiente'), ('en_proceso', 'En proceso'), ('completado', 'Completado')])
     fecha_entrega = models.DateField(blank=True, null=True)
     observaciones = models.TextField(blank=True, null=True)
-    Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    Equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
-    Tecnico = models.ForeignKey(Tecnico, on_delete=models.SET_NULL, null=True)
-    
    
-
-
-

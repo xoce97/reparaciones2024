@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class GeneraRemicionConfig(AppConfig):
+class GeneraRemisionConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'genera_remicion'
+    name = 'genera_remision'
