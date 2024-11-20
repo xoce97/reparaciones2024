@@ -12,7 +12,7 @@ def consulta_estado(request):
         
         try:
             # Realizar la consulta en el modelo Remision
-            remision = Remision.objects.get(numero_remision=numero_estado)
+            remision = Remision.objects.get(pk=numero_estado)
             contexto = {'remision': remision}
         except Remision.DoesNotExist:
             contexto = {'error': 'No se encontró ninguna remisión con ese número de estado.'}

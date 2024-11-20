@@ -1,5 +1,13 @@
 from django.db import models
-import uuid
+
+class Tecnico(models.Model):
+    nombre = models.CharField(max_length=100)
+    especialidad = models.CharField(max_length=100)
+    telefono = models.CharField(max_length=20)
+    email = models.EmailField(blank=True, null=True)
+    
+    def __str__(self):
+        return self.nombre
 
 class Cliente(models.Model):
     nombre = models.CharField(max_length=100)
@@ -21,31 +29,19 @@ class Equipo(models.Model):
     
     def __str__(self):
         return self.tipo_equipo
-    
-    
-
-class Tecnico(models.Model):
-    nombre = models.CharField(max_length=100)
-    especialidad = models.CharField(max_length=100)
-    telefono = models.CharField(max_length=20)
-    email = models.EmailField(blank=True, null=True)
-    
-    def __str__(self):
-        return self.nombre
 
 class Remision(models.Model):
-    Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    Equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
-    Tecnico = models.ForeignKey(Tecnico, on_delete=models.SET_NULL, null=True)
     fecha_remision = models.DateField(auto_now_add=True)
-    numero_remision = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     descripcion_trabajo = models.TextField()  # Detalles del trabajo realizado
     costo_reparacion = models.DecimalField(max_digits=10, decimal_places=2)
     estatus = models.CharField(max_length=50,choices=[('pendiente', 'Pendiente'), ('en_proceso', 'En proceso'), ('completado', 'Completado')])
     fecha_entrega = models.DateField(blank=True, null=True)
     observaciones = models.TextField(blank=True, null=True)
+    Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    Equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
+    Tecnico = models.ForeignKey(Tecnico, on_delete=models.SET_NULL, null=True)
     
+   
 
-    
 
 

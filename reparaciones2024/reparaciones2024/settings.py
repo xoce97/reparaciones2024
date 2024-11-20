@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'genera_remicion',
+    'genera_remision',
     'django_extensions',
 ]
 
