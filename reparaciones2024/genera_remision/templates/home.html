@@ -53,7 +53,7 @@
                 <!-- Servicio 1 -->
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <img src="https://via.placeholder.com/350x150" class="card-img-top" alt="Reparación de Computadoras">
+                        <img src="/static/img/Computadora_Reparacion.avif" class="card-img-top" alt="Reparación de Computadoras">
                         <div class="card-body">
                             <h5 class="card-title">Reparación de Computadoras</h5>
                             <p class="card-text">Diagnóstico y reparación de hardware y software en computadoras de escritorio y portátiles.</p>
@@ -63,7 +63,7 @@
                 <!-- Servicio 2 -->
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <img src="https://via.placeholder.com/350x150" class="card-img-top" alt="Reparación de Teléfonos">
+                        <img src="/static/img/Celulares_Reparacion.avif" class="card-img-top" alt="Reparación de Teléfonos">
                         <div class="card-body">
                             <h5 class="card-title">Reparación de Teléfonos</h5>
                             <p class="card-text">Cambio de pantallas, baterías y componentes dañados en dispositivos móviles.</p>
@@ -73,7 +73,7 @@
                 <!-- Servicio 3 -->
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <img src="https://via.placeholder.com/350x150" class="card-img-top" alt="Reparación de Electrodomésticos">
+                        <img src="/static/img/Electrodomesticos_Reparacion.jpg" class="card-img-top" alt="Reparación de Electrodomésticos">
                         <div class="card-body">
                             <h5 class="card-title">Reparación de Electrodomésticos</h5>
                             <p class="card-text">Mantenimiento y reparación de electrodomésticos como microondas, licuadoras, etc.</p>
@@ -92,7 +92,8 @@
             <p class="text-center mb-4">¿Tienes alguna pregunta? ¡Envíanos un mensaje y nos pondremos en contacto contigo!</p>
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <form>
+                    <form method="POST">
+                        {% csrf_token %}
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
                             <input type="text" class="form-control" id="nombre" placeholder="Tu nombre">
